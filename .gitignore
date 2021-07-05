@@ -1,0 +1,8 @@
+bin
+target
+out
+dist
+*.out
+*.o
+*.lib
+*.log
