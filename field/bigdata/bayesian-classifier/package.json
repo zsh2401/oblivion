@@ -1,7 +1,7 @@
 {
   "name": "bayesian-classifier",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "dist/main.js",
   "license": "MIT",
   "devDependencies": {
     "@types/node": "^16.0.1",
@@ -9,7 +9,9 @@
     "typescript": "^4.3.5"
   },
   "scripts": {
-    "start": "ts-node main.ts"
+    "start": "ts-node main.ts",
+    "build": "tsc",
+    "cs": "ts-node dist/main.js"
   },
   "dependencies": {
     "tdscore": "^0.2.2"

@@ -1,6 +1,7 @@
-import { IMap, HashMap, DSObject, dsEquals } from "tdscore"
-import forEach from "tdscore/lib/ixa/forEach"
+import { IMap, HashMap, DSObject, dsEquals, forEach } from "tdscore"
+// import forEach from "tdscore/lib/ixa/forEach"
 import hashCode from "tdscore/lib/util/hashing"
+
 
 /**
  * 朴素贝叶斯分类
