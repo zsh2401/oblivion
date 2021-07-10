@@ -6,4 +6,8 @@ dist
 *.o
 *.lib
 *.log
+*.run
+*.dll
+*.so
+*.exe
 node_modules
