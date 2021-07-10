@@ -1,4 +1,13 @@
+<div align="center">
+
+![](./icon.png)
+
 # Oblivion
+*Seymour Zhang's Computer Science Code Base.*
+
+E-Mail: zsh2401@163.com
+</div>
+
 ## What&Why
 I have learnt programing and computer science for many years. But unfortunately, there'are some many projects and codes which contains full of meaning has been lost in the river of time. 
 
