@@ -1,0 +1,8 @@
+{
+  "name": "learn-tfjs",
+  "version": "0.0.1",
+  "main": "index.js",
+  "author": "Seymour Zhang<zsh2401@163.com>",
+  "license": "MIT",
+  "private": true
+}

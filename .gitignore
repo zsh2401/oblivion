@@ -6,3 +6,4 @@ dist
 *.o
 *.lib
 *.log
+node_modules
