@@ -1,5 +1,6 @@
 import ArgumentError from "tdscore/lib/ArgumentError"
 export default function entropy(s: number) {
+    //TODO
     if (s <= 0 || s > 1) {
         throw new ArgumentError("the s must be in [0,1]")
     }
