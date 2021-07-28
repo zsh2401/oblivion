@@ -4,7 +4,13 @@
  * 涉及90%以上的C语言知识点，以及基础的数据结构知识
  * */
 
-#define VERSION ("0.3-alpha")
+#define HELLP_MESSAGE ("Ashlynn 0.4-alpha\
+使用说明\n\
+加密：\n\t命令行参数方式： \t./ashlynn encode \"ZXY\"\n\
+\t标准输入方式：\t\t./ashlynn encode\n\
+解密：\n\t命令行参数方式：\t./ashylnn decode \"90 88 89\"\n\
+\t标准输入方式：\t\t./ashlynn decode\n\
+")
 
 //均为C语言标准库，确保程序的跨平台性
 #include <stdio.h>
@@ -123,22 +129,6 @@ char *toString(CharSequence charSeq)
 //=======字符串链表部分========
 
 typedef int32_t target_t;
-
-/**
- * 帮助信息
- * */
-char *getHelpMessage()
-{
-    char *result = malloc(sizeof(char) * 1024);
-    sprintf(result, "Ashlynn 通讯器 <%s>\n\n%s\n%s\n%s\n%s",
-            VERSION,
-            "使用说明\n\n加密：\n\t命令行参数方式： \t./ashlynn encode \"ZXY\"",
-            "\t标准输入方式：\t\t./ashlynn encode",
-            "解密：\n\t命令行参数方式：\t./ashylnn decode \"90 88 89\"",
-            "\t标准输入方式：\t\t./ashlynn decode"
-            );
-    return result;
-}
 
 /**
  * 帮解析用户的操作，确定执行方案
@@ -296,8 +286,8 @@ int main(int argc, char **argv, char **env)
     //不匹配任何目标，或用户要求显示帮助信息
     case TARGET_DISPLAY_HELP_MESSAGE:
     default:
-        output = getHelpMessage();
-        statusCode = 127;
+        output = HELLP_MESSAGE;
+        statusCode = 0;
         break;
     }
 
@@ -305,11 +295,11 @@ int main(int argc, char **argv, char **env)
     printf("%s\n", output);
 
     //释放使用的内存
-    free(output);
-    if (target == TARGET_DECODE_FROM_STDIN || target == TARGET_ENCODE_FROM_STDIN)
-    {
-        free(input);
-    }
+    // free(output);
+    // if (target == TARGET_DECODE_FROM_STDIN || target == TARGET_ENCODE_FROM_STDIN)
+    // {
+    //     free(input);
+    // }
 
     //退出程序
     return statusCode;

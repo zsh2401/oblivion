@@ -1,3 +1,6 @@
+*.tar.gz
+*.gz
+*.tar
 bin/
 .vs/
 target/
