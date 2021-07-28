@@ -4,7 +4,7 @@
  * 涉及90%以上的C语言知识点，以及基础的数据结构知识
  * */
 
-#define VERSION ("0.2-alpha")
+#define VERSION ("0.3-alpha")
 
 //均为C语言标准库，确保程序的跨平台性
 #include <stdio.h>
@@ -12,7 +12,7 @@
 #include <stdint.h>
 #include <string.h>
 
-//一些约定
+//一些硬编码的约定
 #define TARGET_DECODE_FROM_STDIN (0x1031)
 #define TARGET_ENCODE_FROM_STDIN (0x1125)
 #define TARGET_DECODE_FROM_ARG (2001)
@@ -66,6 +66,9 @@ CharSequence newChars()
     return charSeq;
 }
 
+/**
+ * 释放一个字符串链表
+ * */
 void freeCharSeq(CharSequence charSeq)
 {
     CharNode *prev = charSeq->last->prev;
@@ -90,7 +93,7 @@ void append(CharSequence charSeq, char value)
 }
 
 /**
- * 追加字符串
+ * 向字符串链表追加字符串
  * */
 void appendStr(CharSequence chars, char *value)
 {
@@ -101,7 +104,7 @@ void appendStr(CharSequence chars, char *value)
 }
 
 /**
- * 将字符串链表转换为
+ * 将字符串链表转换为C语言标准字符串（字符数组）
  * */
 char *toString(CharSequence charSeq)
 {
@@ -121,16 +124,25 @@ char *toString(CharSequence charSeq)
 
 typedef int32_t target_t;
 
+/**
+ * 帮助信息
+ * */
 char *getHelpMessage()
 {
-    char *result = malloc(sizeof(char) * 100);
-    sprintf(result, "Ashlynn <%s>\n%s\n%s",
+    char *result = malloc(sizeof(char) * 1024);
+    sprintf(result, "Ashlynn 通讯器 <%s>\n\n%s\n%s\n%s\n%s",
             VERSION,
-            "Examples of usage: \n\nashlynn encode \"ZXY\"\n",
-            "ashylnn decode \"90 88 89\"\n");
+            "使用说明\n\n加密：\n\t命令行参数方式： \t./ashlynn encode \"ZXY\"",
+            "\t标准输入方式：\t\t./ashlynn encode",
+            "解密：\n\t命令行参数方式：\t./ashylnn decode \"90 88 89\"",
+            "\t标准输入方式：\t\t./ashlynn decode"
+            );
     return result;
 }
 
+/**
+ * 帮解析用户的操作，确定执行方案
+ * */
 target_t parseTarget(int argc, char **argv)
 {
     if (argc <= 1)
@@ -184,6 +196,7 @@ char *decode(char *encrypt)
     }
     return toString(chars);
 }
+
 /**
  * 将明文进行加密
 */
@@ -249,14 +262,22 @@ int main(int argc, char **argv, char **env)
 
     switch (target)
     {
+
         //如果从标准输入编码
     case TARGET_ENCODE_FROM_STDIN:
+
         //从标准输入获得明文
         input = readline("");
+        //加密
+        output = encode(input);
+        break;
+        
         //如果从参数进行编码
     case TARGET_ENCODE_FROM_ARG:
-        //如果是从上个CASE过来的，则使用，否则从命令行参数取得明文
-        input = input == NULL ? argv[2] : input;
+
+        //从命令行参数获取明文
+        input = argv[2] ;
+        //加密
         output = encode(input);
         break;
 
@@ -265,8 +286,10 @@ int main(int argc, char **argv, char **env)
     */
     case TARGET_DECODE_FROM_STDIN:
         input = readline("");
+        output = decode(input);
+        break;
     case TARGET_DECODE_FROM_ARG:
-        input = input == NULL ? argv[2] : input;
+        input = argv[2] ;
         output = decode(input);
         break;
 
@@ -281,12 +304,13 @@ int main(int argc, char **argv, char **env)
     //唯一使用printf的地方，确保了程序的稳定性
     printf("%s\n", output);
 
-    //处理内存
+    //释放使用的内存
     free(output);
     if (target == TARGET_DECODE_FROM_STDIN || target == TARGET_ENCODE_FROM_STDIN)
     {
         free(input);
     }
 
+    //退出程序
     return statusCode;
 }

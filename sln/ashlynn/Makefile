@@ -1,7 +1,6 @@
-run: ashlynn.run
-	./ashlynn.run
-ashlynn.run: ashlynn.c
-	gcc -o ashlynn.run ashlynn.c
-.PHONY=clean
+ashlynn: ashlynn.c
+	@gcc -o ashlynn ashlynn.c
+
+.PHONY: clean
 clean:
-	rm -f ashlynn *.o *.bin *.run
+	@rm -f ashlynn *.o *.bin *.run
