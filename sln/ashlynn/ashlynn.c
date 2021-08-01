@@ -4,7 +4,7 @@
  * 涉及90%以上的C语言知识点，以及基础的数据结构知识
  * */
 
-#define HELLP_MESSAGE ("Ashlynn 0.4-alpha\
+#define HELLP_MESSAGE ("Ashlynn 0.5-alpha\
 使用说明\n\
 加密：\n\t命令行参数方式： \t./ashlynn encode \"ZXY\"\n\
 \t标准输入方式：\t\t./ashlynn encode\n\
@@ -184,7 +184,9 @@ char *decode(char *encrypt)
         token = strtok(NULL, " ");
         appendStr(chars, charBuffer);
     }
-    return toString(chars);
+    char* str = toString(chars);
+    freeCharSeq(chars);
+    return str;
 }
 
 /**
@@ -210,7 +212,7 @@ char *encode(char *plainText)
         word = strtok(NULL, " ");
         if (word != NULL)
         {
-            appendStr(charSeq, "95\x20");
+            appendStr(charSeq, "32\x20");
         }
     }
     char *result = toString(charSeq);
