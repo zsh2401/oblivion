@@ -3,6 +3,7 @@
 BASE_PATH=$(dirname "$0")
 INIT_DIR=$BASE_PATH/init
 
+source $INIT_DIR/optimize_git.sh
 source $INIT_DIR/gui.sh
 source $INIT_DIR/proxy.sh
 source $INIT_DIR/alias.sh
