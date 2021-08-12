@@ -3,18 +3,19 @@ plugins {
     id 'org.jetbrains.kotlin.jvm' version '1.5.21'
 }
 
-group 'top.zsh2401'
+group 'top.zsh2401.lang'
 version '1.0-SNAPSHOT'
 
 repositories {
-    maven{ url 'http://maven.aliyun.com/nexus/content/groups/public/'}
     google()
-    jcenter(){
-        url "http://jcenter.bintray.com/"
-    }
-    mavenCentral()
+    jcenter()
+    maven{ url 'http://maven.aliyun.com/nexus/content/groups/public/' }
 }
-
+task "create-dist" {
+    sourceSets*.java.srcDirs*.each{it.mkdirs()}
+    sourceSets*.kotlin.srcDirs*.each{it.mkdirs()}
+    sourceSets*.resources.srcDirs*.each{it.mkdirs()}
+}
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib"
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
