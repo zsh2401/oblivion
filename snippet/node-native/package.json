@@ -1,0 +1,19 @@
+{
+  "name": "node-native",
+  "version": "1.0.0",
+  "main": "src/index.js",
+  "license": "MIT",
+  "scripts": {
+    "build:native":"node-gyp rebuild",
+    "start":"ts-node src/index.ts"
+  },
+  "dependencies": {
+    "bindings": "^1.5.0"
+  },
+  "devDependencies": {
+    "@types/bindings": "^1.5.1",
+    "node-gyp": "^8.1.0",
+    "ts-node": "^10.2.0",
+    "typescript": "^4.3.5"
+  }
+}
