@@ -2,7 +2,7 @@ PREFIX?=
 CC?=gcc
 LD?=ld
 OUT?=all.o
-CFLAGS=
+CFLAGS?=
 DEPS=../mylib.h
 
 object: add.o

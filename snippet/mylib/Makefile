@@ -17,9 +17,9 @@ linux-amd64.o:
 linux-x86.o:
 	@make -C src object PREFIX=linux-x86 CC="$(LINUX-X86-CC)" LD="$(LINUX-X86-LD)" OUT=../$@
 win32-amd64.o:
-	@make -C src object PREFIX=win32-amd64 CC="$(WIN-AMD64-CC)" LD=$(WIN-AMD64-LD) OUT=../$@
+	@make -C src object CFLAGS="-DWIN32" PREFIX=win32-amd64 CC="$(WIN-AMD64-CC)" LD=$(WIN-AMD64-LD) OUT=../$@
 win32-x86.o:
-	@make -C src object PREFIX=win32-x86 CC="$(WIN-X86-CC)" LD=$(WIN-X86-LD) OUT=../$@
+	@make -C src object CFLAGS="-DWIN32" PREFIX=win32-x86 CC="$(WIN-X86-CC)" LD=$(WIN-X86-LD) OUT=../$@
 
 win32-x86.dll: win32-x86.o
 	@$(WIN-X86-CC) -fPIC -shared win32-x86.o -o $@
@@ -29,7 +29,7 @@ linux-amd64.so: linux-amd64.o
 	@$(LINUX-AMD64-CC) -fPIC -shared linux-amd64.o -o $@
 linux-x86.so: linux-x86.o
 	@$(LINUX-X86-CC) -L/usr/lib32 -fPIC -shared linux-x86.o -o $@
-	
+
 .PHONY: clean
 clean:
 	@rm -rf *.o *.out *.so *.dll test
