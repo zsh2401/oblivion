@@ -1,2 +1,3 @@
 #!/usr/bin/bash
-sudo mysqld_safe &
+sudo su -c exit
+sudo mysqld_safe >> /dev/null &

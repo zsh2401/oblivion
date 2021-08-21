@@ -1,0 +1,3 @@
+#!/usr/bin/bash
+echo "Forwarding Proxy"
+nc -l 7890 | nc -n $WINHOST 7890 &
