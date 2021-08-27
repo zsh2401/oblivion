@@ -8,5 +8,6 @@ source $INIT_DIR/optimize_git.sh
 source $INIT_DIR/gui.sh
 source $INIT_DIR/proxy.sh
 source $INIT_DIR/alias.sh
-
+source $INIT_DIR/android.sh
+source $INIT_DIR/input_method.sh
 source $INIT_DIR/hello.sh

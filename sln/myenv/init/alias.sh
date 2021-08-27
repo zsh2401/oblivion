@@ -1,4 +1,5 @@
 #!/usr/bin/bash
+alias quit='exit 0'
 alias rm='trash-put'
 alias ls='exa'
 alias la='exa -la'
