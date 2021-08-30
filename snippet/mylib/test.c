@@ -1,6 +1,7 @@
 #include <stdio.h>
-#include "mylib.h"
+#include "my.h"
 int main(void){
-    printf("1+1=%d",add(1,1));
+    alert("hehe");
+    printf("1+1=%d",my_add(1,1));
     return 0;
 }

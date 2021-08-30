@@ -13,4 +13,4 @@ object: add.o
 
 .PHONY: clean
 clean:
-	@rm -rf *.o *.out *.a *.so *.dll
+	@rm -rf *.o *.out *.a *.so *.dll *.exe
