@@ -17,7 +17,23 @@ section .text
         
         xor rax, rax ;RETURN 0
 
+        leave
+        ret
+
+
+    _pdouble:
         pop rbp
+        mov rbp, rsp
+
+        mov r8, rsi
+        mov rdi, fmt_f
+        mov rsi, r8
+
+        xor rax, rax
+        call printf
+        xor rax, rax
+
+        leave
         ret
 
     ;mov rdi, [EXIT CODE]
@@ -28,9 +44,11 @@ section .text
         mov rax, 60                 ; system call for exit
         
         syscall
-        pop rbp
+
+        leave
         ret
 
 
 section .data
     fmt: db "%d", 0
+    fmt_f: db "%d", 0

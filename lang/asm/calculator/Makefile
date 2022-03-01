@@ -1,7 +1,7 @@
 default: calculator.run
 	./calculator.run
 
-calculator.o: calculator.asm f.asm math.asm
+calculator.o: calculator.asm f.asm math.asm floatmath.asm
 	nasm -f elf64 $*.asm -o $*.o
 
 calculator.run: calculator.o

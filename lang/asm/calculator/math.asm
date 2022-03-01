@@ -124,23 +124,24 @@ section .text
         leave
         ret
 
-    ;sin(rsi)
-    _sin:
-        push rbp
-        mov rbp, rsp
+    ; ;sin(rsi)
+    ; _sin:
+    ;     finit
+    ;     push rbp
+    ;     mov rbp, rsp
 
-        xor rax, rax
+    ;     xor rax, rax
+    ;     xor r9,r9 ;sign
+    ;     _sin_for_init:
+    ;     xor r8, r8
 
-        _sin_for_init:
-        xor r8, r8
-     
-        _sin_for_cmp:
+    ;     _sin_for_cmp:
 
-        add rax, rbx
-        _sin_for_end:
-        ; result is already in rax
-        leave
-        ret
+    ;     add rax, rbx
+    ;     _sin_for_end:
+        
+    ;     leave
+    ;     ret
 
 section .data
     TERMS: db 12
