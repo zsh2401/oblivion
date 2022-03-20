@@ -1,0 +1,8 @@
+#!/usr/bin/bash
+
+BASE_PATH=$(dirname "$0")
+# INIT_DIR=$BASE_PATH
+# PATH=$PATH:$BASE_PATH/bin
+
+source $BASE_PATH/envrc
+source $BASE_PATH/aliasrc
