@@ -1,5 +1,5 @@
 #!/usr/bin/bash
 
-alias tldr="tldr -t ocean"
+#alias tldr="tldr -t ocean"
 alias ls="exa"
 alias la="eax -lha"

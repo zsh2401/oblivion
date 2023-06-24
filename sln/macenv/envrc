@@ -4,9 +4,9 @@
 #export JAVA_LATEST_HOME=$(/usr/libexec/java_home)
 #export JAVA_HOME=$JAVA_8_HOME
 
-export http_proxy="http://localhost:7890"
-export all_proxy="socks5://localhost:7890"
-export ALL_PROXY=$all_proxy
+#export http_proxy="http://localhost:7890"
+#export all_proxy="socks5://localhost:7890"
+#export ALL_PROXY=$all_proxy
 #export NO_PROXY="localhost,127.0.0.1,localaddress,.localdomain.com"
 
 alias ls='exa'
