@@ -1,0 +1,1 @@
+# compile and run main.c
