@@ -3,3 +3,5 @@
 #alias tldr="tldr -t ocean"
 alias ls="exa"
 alias la="eax -lha"
+alias oo="open -a /Applications/OneDrive.app && echo 'Opened OneDrive'"
+alias ko="pkill -x OneDrive && echo 'Killed OneDrive'"

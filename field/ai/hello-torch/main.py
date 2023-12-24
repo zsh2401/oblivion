@@ -87,3 +87,5 @@ train()
 # test()
 pred()
 # print(to_safe_area(10))
+
+#%%
