@@ -1,6 +1,8 @@
 #!/usr/bin/bash
 
 #alias tldr="tldr -t ocean"
+alias sw="cd /Volumes/PData/SunwayWorkingSpace"
+alias r="cd ~/Remote"
 alias ls="exa"
 alias la="eax -lha"
 alias oo="open -a /Applications/OneDrive.app && echo 'Opened OneDrive'"
